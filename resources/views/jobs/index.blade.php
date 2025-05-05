@@ -1,6 +1,8 @@
 <x-layout>
     <x-slot:heading>
-        Job listing
+        <div class=" flex justify-between ">
+            <div>Job listing</div>
+        </div>
     </x-slot:heading>
     <div class="space-y-4">
     @foreach($jobs as $job)
@@ -12,6 +14,7 @@
             </a>
     @endforeach
 
+        {{--  Layout from tailwind to interact with pagination --}}
         <div>
             {{ $jobs->links() }}
         </div>

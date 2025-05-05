@@ -7,5 +7,18 @@ class Job extends Model {
     use HasFactory;
     protected $table = 'job_listings';
 
-    protected $fillable = ['title', 'salary'];
+    //columnes que si es poden modificar
+//    protected $fillable = ['title', 'salary', 'employer_id'];
+
+//$guarded=protegida. [] significa que no hi ha cap columna protegida, aixi no cal especificar 1 a 1 al $fillable
+    protected $guarded = [];
+
+    public function employer() {
+        return $this->belongsTo(Employer::class);
+    }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class, foreignPivotKey: 'job_listing_id');
+    }
+
 }

@@ -7,10 +7,6 @@ class Job extends Model {
     use HasFactory;
     protected $table = 'job_listings';
 
-    //columnes que si es poden modificar
-//    protected $fillable = ['title', 'salary', 'employer_id'];
-
-//$guarded=protegida. [] significa que no hi ha cap columna protegida, aixi no cal especificar 1 a 1 al $fillable
     protected $guarded = [];
 
     public function employer() {
